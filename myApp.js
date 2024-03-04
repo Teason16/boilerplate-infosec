@@ -2,12 +2,8 @@ const express = require('express');
 const helmet = require('helmet');
 const app = express();
 
-
-const PORT = process.env.PORT || 3030;
-
-app.listen(PORT, () => {
-  console.log('🐬 Info security app started on paort ${PORT}');
-});
+app.use(helmet.hidePoweredBy());
+app.use(helmet.frameguard({action: 'deny'}))
 
 
 
